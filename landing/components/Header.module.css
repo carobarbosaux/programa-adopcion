@@ -1,0 +1,102 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.scrolled {
+  border-bottom-color: var(--gray-04);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.brandSep {
+  color: var(--gray-05);
+  font-weight: 300;
+}
+
+.brandProgram {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.nav {
+  flex: 1;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.navLink {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--gray-02);
+}
+
+.navLink.active {
+  color: var(--red-strong);
+  font-weight: 600;
+}
+
+.ctaBtn {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--red-strong);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.ctaBtn:hover {
+  background: var(--red-dark);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .brandProgram {
+    display: none;
+  }
+}

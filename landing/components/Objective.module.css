@@ -1,0 +1,42 @@
+.objective {
+  background: var(--white);
+}
+
+.header {
+  margin-bottom: 56px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--gray-02);
+  border: 1px solid var(--gray-04);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.number {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--red-strong);
+  line-height: 1;
+}
+
+.text {
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

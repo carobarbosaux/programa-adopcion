@@ -1,0 +1,233 @@
+/* ── Shell ──────────────────────────────────────────────────── */
+
+.timeline {
+  background: var(--white);
+  padding: 80px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* paper grain overlay */
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/></filter><rect width='240' height='240' filter='url(%23n)' opacity='0.6'/></svg>");
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1140px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Rail ───────────────────────────────────────────────────── */
+
+.rail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.railCell {
+  position: relative;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* connector line */
+.railCell:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 28px);
+  height: 2px;
+  background: rgba(26, 26, 26, 0.22);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  z-index: 0;
+  transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.35s;
+}
+
+/* second connector fades to peach */
+.railCell:nth-child(2):not(:last-child)::after {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.22) 0%, var(--terracotta-light) 100%);
+  transition-delay: 0.7s;
+}
+
+/* ── Dots ───────────────────────────────────────────────────── */
+
+.dot {
+  position: relative;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gray-07);
+  transform: scale(0);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: url(#dotWob);
+}
+
+.railCell:nth-child(1) .dot { transition-delay: 0.15s; }
+.railCell:nth-child(2) .dot { transition-delay: 0.55s; }
+.railCell:nth-child(3) .dot { transition-delay: 0.95s; }
+
+.dotCurrent {
+  width: 26px;
+  height: 26px;
+  background: var(--terracotta-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dotCurrent::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--terracotta);
+}
+
+/* ── Cards ──────────────────────────────────────────────────── */
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+}
+
+.card {
+  background: var(--ivory);
+  border: 1px solid rgba(26, 26, 26, 0.13);
+  border-radius: 16px;
+  padding: 28px 30px 32px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 16px 32px -18px rgba(26, 26, 26, 0.1);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.card:nth-child(1) { transition-delay: 0.25s; }
+.card:nth-child(2) { transition-delay: 0.55s; }
+.card:nth-child(3) { transition-delay: 0.85s; }
+
+.cardLabel {
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: rgba(26, 26, 26, 0.55);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.cardText {
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: rgba(26, 26, 26, 0.78);
+  letter-spacing: -0.005em;
+}
+
+/* highlighted card */
+.cardCurrent {
+  background: var(--terracotta-light);
+  border: 1.5px solid var(--terracotta);
+}
+
+.cardCurrent .cardLabel { color: var(--terracotta-dark); }
+.cardCurrent .cardText  { color: #2a1a10; }
+
+/* ── CTA pill ───────────────────────────────────────────────── */
+
+.pill {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 11px 18px;
+  border: 1.5px solid var(--terracotta);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--terracotta-dark);
+  font-family: var(--font-mono), 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  filter: url(#pillWob);
+}
+
+.pill:hover {
+  background: rgba(164, 94, 62, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ── "in view" — triggers animations ───────────────────────── */
+
+.in .railCell::after       { transform: translateY(-50%) scaleX(1); }
+.in .dot                   { transform: scale(1); }
+.in .dotCurrent            { animation: pulse 2.6s ease-out 1.2s infinite; }
+.in .card                  { opacity: 1; transform: none; }
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0    rgba(196, 123, 88, 0.42); }
+  70%  { box-shadow: 0 0 0 14px rgba(196, 123, 88, 0);    }
+  100% { box-shadow: 0 0 0 0    rgba(196, 123, 88, 0);    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .railCell::after,
+  .dot,
+  .card { transition: none !important; }
+  .dotCurrent { animation: none !important; }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 760px) {
+  .timeline { padding: 56px 20px; align-items: flex-start; }
+  .rail { display: none; }
+  .cards { grid-template-columns: 1fr; gap: 16px; }
+
+  .card {
+    padding: 22px 22px 26px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 18px;
+    align-items: start;
+  }
+
+  .card::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-07);
+    margin-top: 7px;
+    grid-row: span 3;
+  }
+
+  .cardCurrent::before {
+    width: 20px;
+    height: 20px;
+    background: var(--terracotta-light);
+    margin-top: 2px;
+  }
+}

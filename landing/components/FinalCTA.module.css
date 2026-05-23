@@ -1,0 +1,51 @@
+.cta {
+  background: var(--text-primary);
+  padding: 96px 0;
+}
+
+.inner {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.body {
+  font-size: 18px;
+  color: var(--gray-06);
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+/* Override secondary button for dark background */
+.actions :global(.btn-secondary) {
+  color: var(--white);
+  border-color: var(--gray-07);
+}
+
+.actions :global(.btn-secondary):hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--gray-06);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+  .cta {
+    padding: 64px 0;
+  }
+}

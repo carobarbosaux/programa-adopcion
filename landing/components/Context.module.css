@@ -1,0 +1,218 @@
+.context {
+  background: var(--gray-01);
+  border-top: 1px solid var(--gray-04);
+  border-bottom: 1px solid var(--gray-04);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.left {
+  position: sticky;
+  top: 88px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.body {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* ── Callout (local override, no left border) ── */
+.callout {
+  border-top: 1px solid var(--gray-04);
+  border-bottom: 1px solid var(--gray-04);
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin: 4px 0;
+}
+
+/* ── Transformation block ── */
+
+.transformation {
+  margin-top: 8px;
+}
+
+.transformTitle {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* ── Timeline (horizontal) ── */
+
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr 44px 1fr;
+  align-items: start;
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.trackTop {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  border: 2px solid var(--gray-01);
+  box-shadow: 0 0 0 2px var(--gray-05);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.timelineDotFeatured {
+  width: 16px;
+  height: 16px;
+  background: var(--terracotta-dark);
+  border: 2px solid var(--gray-01);
+  box-shadow: 0 0 0 3px var(--terracotta-light);
+}
+
+.timelineConnector {
+  height: 2px;
+  background: var(--gray-04);
+  margin-top: 11px;
+  align-self: start;
+}
+
+.timelineConnectorActive {
+  background: linear-gradient(to right, var(--gray-04), var(--terracotta-light));
+}
+
+/* Cards */
+.timelineCard {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--gray-04);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+
+.timelineCardFeatured {
+  background: var(--terracotta-extra-light);
+  border: 1.5px solid var(--terracotta);
+  padding: 18px 20px 16px;
+}
+
+/* Step label */
+.stepLabel {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.stepLabelFeatured {
+  color: var(--terracotta-dark);
+}
+
+/* Step text */
+.stepText {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.stepTextFeatured {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+/* Badge on featured card */
+.featuredBadge {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta-dark);
+  background: var(--terracotta-light);
+  border: 1px solid var(--terracotta);
+  border-radius: 100px;
+  padding: 3px 10px;
+}
+
+/* ── Scroll-triggered entrance animation ── */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .left {
+    position: static;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .timelineItem {
+    align-items: center;
+  }
+
+  .timelineCard,
+  .timelineCardFeatured {
+    width: 100%;
+  }
+
+  .timelineConnector {
+    width: 2px;
+    height: 24px;
+    margin: 0 auto;
+  }
+
+  .timelineConnectorActive {
+    background: linear-gradient(to bottom, var(--gray-04), var(--terracotta-light));
+  }
+}

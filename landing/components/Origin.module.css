@@ -1,0 +1,39 @@
+.origin {
+  background: var(--gray-01);
+  border-top: 1px solid var(--gray-04);
+  border-bottom: 1px solid var(--gray-04);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.left {
+  position: sticky;
+  top: 88px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .left {
+    position: static;
+  }
+}

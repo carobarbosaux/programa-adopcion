@@ -1,0 +1,132 @@
+.phases {
+  background: var(--ivory-deep);
+  padding: 80px 0;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.illustration {
+  background: color-mix(in srgb, var(--card-color) 50%, var(--white));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 18px;
+  min-height: 140px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--card-color) 18%, var(--white));
+  border: 1px solid color-mix(in srgb, var(--card-color) 55%, transparent);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease;
+}
+
+.cardBody {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-elevated);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.week {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--card-color) 90%, var(--text-primary));
+  background: color-mix(in srgb, var(--card-color) 40%, transparent);
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.format {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.responsible {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--card-color) 50%, transparent);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .phases { padding: 56px 0; }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cardTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .format {
+    text-align: left;
+  }
+}
