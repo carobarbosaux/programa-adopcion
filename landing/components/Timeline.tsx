@@ -68,7 +68,6 @@ export default function Timeline() {
           <article className={`${styles.card} ${styles.cardCurrent}`}>
             <div className={styles.cardLabel}>Después</div>
             <p className={styles.cardText}>Flujos reutilizables, subagentes, documentación, QA y métricas de impacto.</p>
-            <a href="#objetivo" className={styles.pill}>El objetivo del programa</a>
           </article>
         </div>
       </div>

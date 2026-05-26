@@ -1,9 +1,17 @@
 .capabilities {
-  background: var(--white);
+  background: var(--red-dark);
 }
 
 .header {
   margin-bottom: 56px;
+}
+
+.header :global(.eyebrow) {
+  color: var(--red-soft);
+}
+
+.header :global(.section-title) {
+  color: var(--white);
 }
 
 .grid {
@@ -13,25 +21,25 @@
 }
 
 .card {
-  background: var(--gray-02);
-  border: 1px solid var(--gray-04);
+  background: var(--white);
+  border: 1px solid transparent;
   border-radius: var(--radius-lg);
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .card:hover {
-  border-color: var(--red-soft);
-  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .cardTitle {
   font-size: 15px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--red-dark);
   font-family: "SF Mono", "Fira Code", monospace;
 }
 

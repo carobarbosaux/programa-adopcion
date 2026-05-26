@@ -107,9 +107,9 @@ export const weeks = [
     duration: "6 h",
     format: "Presencial + plenaria",
     description:
-      "Equipos de trabajo, producto mínimo viable, documentación con Claude Code, métricas de impacto y Demo Day.",
+      "Equipos de trabajo, producto mínimo viable, documentación con Claude Code, métricas de impacto y Hack Day.",
     practice: "Producto DEV completo generado y documentado con Claude Code.",
-    tags: ["Hack Day", "Demo Day", "Métricas"],
+    tags: ["Hack Day", "Hack Day", "Métricas"],
     status: "Pendiente de validar duración final",
   },
 ];
@@ -122,14 +122,14 @@ export const programPhases = [
     format: "Presencial y online + plenario",
     responsible: ["José Luis Martín", "Luis Sánchez", "Dini Pomar", "Pablo Ruiz", "Mamel Redondo"],
     description:
-      "Arranque del programa para alinear la visión estratégica de IA en Proeduca, entender el papel de Claude como herramienta base para Tecnología y construir una base común sobre IA generativa, modelos, contexto, costes, límites y buenas prácticas.",
+      "Arranque del programa para alinear la visión estratégica de IA en Proeduca, entender el papel de la IA como herramienta base para Tecnología y construir una base común sobre IA generativa, modelos, contexto, costes, límites y buenas prácticas.",
     illustration: "/ai-fundamentals.svg",
     visualColor: "#D1C7DE",
   },
   {
     id: "semana-2-driven-specs",
     week: "Semana 2",
-    title: "Driven specs y plugins: skills y MCP",
+    title: "Driven specs, prompt engineering y plugins: skills y MCP",
     format: "Online en directo – En grupos",
     responsible: ["Samuel Herrero", "Carolina Barbosa"],
     description:
@@ -173,7 +173,7 @@ export const programPhases = [
   {
     id: "semana-6-demo-day",
     week: "Semana 6",
-    title: "Demo Day",
+    title: "Hack Day",
     format: "Online en directo – En grupos",
     responsible: ["Olga Pastushenko", "María Almazán"],
     description:
@@ -239,7 +239,7 @@ export const expectedResults = [
   "Revisión de código con criterios claros.",
   "Testing orientado a casos borde.",
   "Subagentes para trabajo técnico recurrente.",
-  "Un caso propio documentado para Demo Day.",
+  "Un caso propio documentado para Hack Day.",
 ];
 
 export const repositoryFilters = [

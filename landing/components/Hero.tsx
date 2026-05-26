@@ -39,7 +39,7 @@ export default function Hero() {
 
           <p className={styles.subtitle}>
             Un programa práctico para integrar Claude en el trabajo real de los
-            equipos de tecnología: specs, código, seguridad, QA, agentes y Demo
+            equipos de tecnología: specs, código, seguridad, QA, agentes y Hack
             Day.
           </p>
 
@@ -96,14 +96,14 @@ export default function Hero() {
               <ProgramCard tag="[01]" tagClass={styles.tag1} title="visión + fundamentos"
                 meta={["estrategia IA", "modelos", "contexto", "Claude base"]} />
               <ProgramCard tag="[02]" tagClass={styles.tag2} title="driven specs"
-                meta={["skills", "MCP", "connectors", "Workbench"]} />
+                meta={["skills", "MCP", "connectors", "Prompt Engineering"]} />
               <ProgramCard tag="[03]" tagClass={styles.tag3} title="arquitectura + seguridad"
                 meta={["cumplimiento", "auditoría", "riesgos", "DevOps"]} />
               <ProgramCard tag="[04]" tagClass={styles.tag4} title="agentes"
                 meta={["subagentes", "Agent SDK", "flujos técnicos"]} />
               <ProgramCard tag="[05]" tagClass={styles.tag5} title="testing + QA"
                 meta={["Playwright", "build-fix", "Worktree", "remote-control"]} />
-              <ProgramCard tag="[06]" tagClass={styles.tag6} title="demo day"
+              <ProgramCard tag="[06]" tagClass={styles.tag6} title="hack day"
                 meta={["resultados", "casos de uso", "métricas"]} />
 
               <div className={styles.prompt}>
