@@ -40,7 +40,12 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.brand}>
-          <span className={styles.brandName}>Proeduca</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-proeduca.svg"
+            alt="Proeduca"
+            className={styles.brandLogo}
+          />
           <span className={styles.brandSep}>·</span>
           <span className={styles.brandProgram}>Adopción IA</span>
         </div>
